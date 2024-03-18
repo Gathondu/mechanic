@@ -1,0 +1,2 @@
+class RemoveRoleFromUser < ApplicationRecord
+end

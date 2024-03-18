@@ -1,0 +1,47 @@
+<div id="<%= dom_id car %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Make:</strong>
+    <%= car.make %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Model:</strong>
+    <%= car.model %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Year of manufactuer:</strong>
+    <%= car.year_of_manufactuer %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Vin:</strong>
+    <%= car.vin %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Registration:</strong>
+    <%= car.registration %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Mileage:</strong>
+    <%= car.mileage %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Odometer type:</strong>
+    <%= car.odometer_type %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Customer:</strong>
+    <%= car.customer_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this car", car, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this car", edit_car_path(car), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

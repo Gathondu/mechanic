@@ -1,3 +1,3 @@
 class Customer < User
-  has_many :cars, dependet: :destroy
+  has_many :cars, dependent: :destroy
 end

@@ -1,0 +1,47 @@
+<div id="<%= dom_id service %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Status:</strong>
+    <%= service.status %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Start time:</strong>
+    <%= service.start_time %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Duration:</strong>
+    <%= service.duration %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Type:</strong>
+    <%= service.type %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= service.description %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Cost:</strong>
+    <%= service.cost %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Car:</strong>
+    <%= service.car_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">User:</strong>
+    <%= service.user_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this service", service, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this service", edit_service_path(service), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

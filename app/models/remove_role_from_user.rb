@@ -1,2 +1,0 @@
-class RemoveRoleFromUser < ApplicationRecord
-end

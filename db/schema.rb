@@ -11,16 +11,13 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_03_18_105150) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "cars", force: :cascade do |t|
+  create_table "cars", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "make"
     t.string "model"
-    t.integer "year_of_manufactuer"
+    t.string "year_of_manufactuer"
     t.string "vin"
     t.string "registration"
-    t.integer "mileage"
+    t.string "mileage"
     t.integer "odometer_type"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -28,13 +25,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_105150) do
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
-  create_table "services", force: :cascade do |t|
+  create_table "services", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "status"
     t.datetime "start_time"
     t.string "duration"
     t.integer "type"
     t.text "description"
-    t.decimal "cost"
+    t.decimal "cost", precision: 10, scale: 2
     t.bigint "car_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -43,14 +40,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_105150) do
     t.index ["user_id"], name: "index_services_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "type"
     t.string "first_name"
     t.string "last_name"
     t.string "username"
     t.string "email"
     t.string "country_code"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

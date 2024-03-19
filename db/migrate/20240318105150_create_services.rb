@@ -6,7 +6,7 @@ class CreateServices < ActiveRecord::Migration[7.1]
       t.string :duration
       t.integer :type
       t.text :description
-      t.decimal :cost
+      t.decimal :cost, precision: 10, scale: 2
       t.belongs_to :car, null: false, foreign_key: true
       t.belongs_to :user, null: false, foreign_key: true
 

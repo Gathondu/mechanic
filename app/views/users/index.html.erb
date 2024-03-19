@@ -4,11 +4,11 @@
   <% end %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Users</h1>
-    <%= link_to "New user", new_user_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <h1 class="font-bold text-4xl"><%= @users.model_name.name %>s</h1>
+    <%= link_to "New #{@users.model_name.name.downcase}", {controller: "users", action: 'new'}, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
   <div id="users" class="min-w-full">
-    <%= render @users %>
+    <%= render partial: 'user', collection: @users %>
   </div>
 </div>

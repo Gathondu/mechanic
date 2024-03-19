@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    @users = user_type.all
   end
 
   # GET /users/1 or /users/1.json
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    @user = user_type.new
   end
 
   # GET /users/1/edit
@@ -19,11 +19,11 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    @user = User.new(user_params)
+    @user = user_type.new(user_params)
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to user_url(@user), notice: 'User was successfully created.' }
+        format.html { redirect_to action: 'show', id: @user, notice: "#{user_type} was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: 'User was successfully updated.' }
+        format.html { redirect_to action: 'show', id: @user, notice: "#{user_type} was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     @user.destroy!
 
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: "#{user_type} was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -62,8 +62,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def user_type
+    params[:type].constantize if params[:type].in? User::TYPE_NAMES
+  end
+
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:type, :first_name, :last_name, :username, :email, :country_code, :phone_number)
+    params.require(params[:type].downcase.to_sym).permit(:type, :first_name, :last_name, :username, :email,
+                                                         :country_code, :phone_number)
   end
 end

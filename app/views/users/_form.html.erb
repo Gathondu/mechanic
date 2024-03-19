@@ -1,7 +1,7 @@
 <%= form_with(model: user, class: "contents") do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this <%= user.model_name.name.downcase %> from being saved:</h2>
 
       <ul>
         <% user.errors.each do |error| %>
@@ -10,11 +10,6 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="my-5">
-    <%= form.label :type %>
-    <%= form.text_field :type, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
 
   <div class="my-5">
     <%= form.label :first_name %>
@@ -44,11 +39,6 @@
   <div class="my-5">
     <%= form.label :phone_number %>
     <%= form.number_field :phone_number, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :role %>
-    <%= form.number_field :role, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">

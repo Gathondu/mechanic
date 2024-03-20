@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <%= hidden_field_tag :customer_id, @customer_id %>
+
   <div class="my-5">
     <%= form.label :make %>
     <%= form.text_field :make, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
@@ -23,7 +25,7 @@
 
   <div class="my-5">
     <%= form.label :year_of_manufactuer %>
-    <%= form.number_field :year_of_manufactuer, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :year_of_manufactuer, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
@@ -38,17 +40,12 @@
 
   <div class="my-5">
     <%= form.label :mileage %>
-    <%= form.number_field :mileage, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :mileage, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
     <%= form.label :odometer_type %>
-    <%= form.number_field :odometer_type, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :customer_id %>
-    <%= form.text_field :customer_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :odometer_type, Car.odometer_types.keys.to_a, include_blank: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">

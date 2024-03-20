@@ -29,11 +29,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_105150) do
     t.integer "status"
     t.datetime "start_time"
     t.string "duration"
-    t.integer "type"
+    t.integer "service_type"
     t.text "description"
     t.decimal "cost", precision: 10, scale: 2
     t.bigint "car_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["car_id"], name: "index_services_on_car_id"

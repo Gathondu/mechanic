@@ -23,7 +23,11 @@
 
   <div class="my-5">
     <%= form.label :duration %>
-    <%= form.text_field :duration, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <% if @service.duration%>
+      <%= form.text_field :duration, value: ActiveSupport::Duration.build(@service.duration).inspect, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <% else %>
+      <%= form.text_field :duration, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <% end %>
   </div>
 
   <div class="my-5">
@@ -39,6 +43,10 @@
   <div class="my-5">
     <%= form.label :cost %>
     <%= form.text_field :cost, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+  <div class="my-5">
+    <%= form.label :employee_id %>
+    <%= form.select :employee_id, Employee.all.map {|emp| [emp.username.humanize(), emp.id]}, selected: @service.employee_id, include_blank: true, class: "block shadow rounded-lg border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">

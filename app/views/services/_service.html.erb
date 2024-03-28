@@ -1,47 +1,49 @@
-<div id="<%= dom_id @service %>">
+<div id="<%= dom_id service %>">
   <p class="my-5">
     <strong class="block font-medium mb-1">Status:</strong>
-    <%= @service.status %>
+    <%= service.status %>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Start time:</strong>
-    <%= @service.start_time %>
+    <%= service.start_time %>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Duration:</strong>
-    <%= @service.duration %>
+    <%= ActiveSupport::Duration.build(service.duration).inspect %>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Type:</strong>
-    <%= @service.type %>
+    <%= service.service_type %>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Description:</strong>
-    <%= @service.description %>
+    <%= service.description %>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Cost:</strong>
-    <%= @service.cost %>
+    <%= service.cost %>
   </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Car:</strong>
-    <%= @service.car_id %>
+    <%= service.car.registration %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Employee:</strong>
-    <%= @service.user_id %>
-  </p>
+  <% if service.employee_id %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Employee:</strong>
+      <%= Employee.find(service.employee_id).username %>
+    </p>
+  <% end%>
 
   <% if action_name != "show" %>
-    <%= link_to "Show", @service, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit", edit_service_path(@service), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Show", service, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit", edit_service_path(service), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
 </div>

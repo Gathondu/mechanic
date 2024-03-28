@@ -3,7 +3,7 @@ class ServicesController < ApplicationController
   before_action :set_service, only: %i[show edit update destroy]
 
   def index
-    @services = Service.all
+    @services = @car.services
   end
 
   def show
@@ -65,6 +65,16 @@ class ServicesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def service_params
-    params.require(:service).permit(:status, :start_time, :duration, :service_type, :description, :cost)
+    @service_params = params.require(:service).permit(:status, :start_time, :duration, :service_type, :description,
+                                                      :cost, :employee_id)
+
+    parts = @service_params[:duration].split
+    allowed = /\A(minute|hour|day|week|month|year)s?\z/
+
+    raise TypeError('Check the duration') unless allowed.match? parts.last
+
+    duration_value = parts.first.to_i.send(parts.last)
+    @service_params[:duration] = duration_value
+    @service_params
   end
 end

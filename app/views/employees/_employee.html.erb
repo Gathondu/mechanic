@@ -31,8 +31,8 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show", admin_employee_path(@admin, employee), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit", edit_admin_employee_path(@admin, employee), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Show", employee, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit", edit_employee_path(employee), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
 </div>

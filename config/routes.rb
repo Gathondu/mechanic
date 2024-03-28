@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   scope 'users' do
     resources :customers, controller: 'users', type: 'Customer'
     resources :admins, controller: 'users', type: 'Admin' do
-      resources :employees
+      resources :employees, shallow: true
     end
   end
   resources :customers, controller: 'users', type: 'Customer' do

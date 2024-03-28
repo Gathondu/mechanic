@@ -1,9 +1,9 @@
 class EmployeesController < ApplicationController
-  before_action :set_admin
+  before_action :set_admin, only: %i[index new create]
   before_action :set_employee, only: %i[show edit update destroy]
 
   def index
-    @employees = Employee.all
+    @employees = @admin.employees
   end
 
   def show; end
@@ -19,7 +19,7 @@ class EmployeesController < ApplicationController
 
     respond_to do |format|
       if @employee.save
-        format.html { redirect_to admin_employee_url(@admin, @employee), notice: 'Employee was successfully created.' }
+        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
         format.json { render :show, status: :created, location: @employee }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -30,8 +30,8 @@ class EmployeesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @employee.update({ admin_id: params[:admin_id], **employee_params })
-        format.html { redirect_to admin_employee_url(@admin, @employee), notice: 'Employee was successfully updated.' }
+      if @employee.update(employee_params)
+        format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
         format.json { render :show, status: :ok, location: @employee }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -44,7 +44,9 @@ class EmployeesController < ApplicationController
     @employee.destroy!
 
     respond_to do |format|
-      format.html { redirect_to admin_employees_url(@admin), notice: 'Employee was successfully destroyed.' }
+      format.html do
+        redirect_to admin_employees_url(@employee.manager_id), notice: 'Employee was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end

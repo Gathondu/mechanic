@@ -3,4 +3,5 @@ class Car < ApplicationRecord
   enum odometer_type: %i[kph mph]
 
   belongs_to :customer
+  has_many :services, dependent: :delete_all
 end

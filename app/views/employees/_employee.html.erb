@@ -1,0 +1,38 @@
+<div id="<%= dom_id employee %>">
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">First name:</strong>
+    <%= employee.first_name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Last name:</strong>
+    <%= employee.last_name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Username:</strong>
+    <%= employee.username %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Email:</strong>
+    <%= employee.email %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Country code:</strong>
+    <%= employee.country_code %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Phone number:</strong>
+    <%= employee.phone_number %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show", admin_employee_path(@admin, employee), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit", edit_admin_employee_path(@admin, employee), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

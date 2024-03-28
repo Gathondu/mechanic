@@ -50,6 +50,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_105150) do
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "admin_id_id"
+    t.bigint "admin_id"
+    t.bigint "manager_id"
+    t.index ["admin_id"], name: "index_users_on_admin_id"
+    t.index ["admin_id_id"], name: "index_users_on_admin_id_id"
+    t.index ["manager_id"], name: "index_users_on_manager_id"
   end
 
   add_foreign_key "cars", "users"

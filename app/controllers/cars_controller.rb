@@ -1,33 +1,27 @@
 class CarsController < ApplicationController
+  before_action :set_customer, only: %i[index new create]
   before_action :set_car, only: %i[show edit update destroy]
 
-  # GET /cars or /cars.json
   def index
     @cars = Car.all
   end
 
-  # GET /cars/1 or /cars/1.json
   def show
   end
 
-  # GET /cars/new
   def new
     @car = Car.new
-    @customer_id = params[:customer_id]
   end
 
-  # GET /cars/1/edit
   def edit
   end
 
-  # POST /cars or /cars.json
   def create
-    @customer = Customer.find(params[:customer_id])
     @car = @customer.cars.build(car_params)
 
     respond_to do |format|
       if @car.save
-        format.html { redirect_to car_url(@car), notice: 'Car was successfully created.' }
+        format.html { redirect_to customer_cars_url(@customer), notice: 'Car was successfully created.' }
         format.json { render :show, status: :created, location: @car }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,7 +30,6 @@ class CarsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cars/1 or /cars/1.json
   def update
     respond_to do |format|
       if @car.update(car_params)
@@ -49,12 +42,12 @@ class CarsController < ApplicationController
     end
   end
 
-  # DELETE /cars/1 or /cars/1.json
   def destroy
+    @customer_id = @car.customer_id
     @car.destroy!
 
     respond_to do |format|
-      format.html { redirect_to cars_url, notice: 'Car was successfully destroyed.' }
+      format.html { redirect_to customer_cars_url(@customer_id), notice: 'Car was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,6 +57,10 @@ class CarsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_car
     @car = Car.find(params[:id])
+  end
+
+  def set_customer
+    @customer = Customer.find(params[:customer_id])
   end
 
   # Only allow a list of trusted parameters through.

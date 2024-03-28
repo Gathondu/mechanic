@@ -40,8 +40,11 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this car", car, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this car", edit_car_path(car), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Show", car, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit", edit_car_path(car), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="inline-block ml-2">
+      <%= button_to "Delete", car, method: :delete, class: "rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    </div>
     <hr class="mt-6">
   <% end %>
 </div>

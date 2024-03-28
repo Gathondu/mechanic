@@ -1,10 +1,10 @@
-<%= form_with(model: service, class: "contents") do |form| %>
-  <% if service.errors.any? %>
+<%= form_with(model: [@car, @service], class: "contents") do |form| %>
+  <% if @service.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
 
       <ul>
-        <% service.errors.each do |error| %>
+        <% @service.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -13,7 +13,7 @@
 
   <div class="my-5">
     <%= form.label :status %>
-    <%= form.select :status, Service.statuses.keys.to_a, include_blank: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :status, Service.statuses.keys.map {|key| [key.humanize, key]}, selected: @service.status || :pending, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
@@ -28,7 +28,7 @@
 
   <div class="my-5">
     <%= form.label :service_type %>
-    <%= form.select :service_type, Service.service_types.keys.to_a, include_blank: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :service_type, Service.service_types.keys.map {|key| [key.humanize, key]}, selected: @service.service_type || :minor, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
@@ -39,16 +39,6 @@
   <div class="my-5">
     <%= form.label :cost %>
     <%= form.text_field :cost, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :car_id %>
-    <%= form.select :car_id, Car.all.map {|c| [c.registration, c.id]}, prompt: 'Select vehicle', class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :employee_id %>
-    <%= form.select :employee_id, Employee.all.map {|e| [e.username, e.id]}, prompt: 'Assign employee', class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">

@@ -5,6 +5,6 @@ class Service < ApplicationRecord
   alias_attribute :employee_id, :user_id
   attribute :duration, :duration
 
-  enum status: %i[booked pending started complete cancelled]
+  enum status: %i[pending started complete cancelled]
   enum service_type: %i[minor major custom]
 end

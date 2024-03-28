@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
-  resources :services
-  resources :cars
   scope 'users' do
     resources :customers, controller: 'users', type: 'Customer'
-    resources :employees, controller: 'users', type: 'Employee'
-    resources :admin, controller: 'users', type: 'Admin'
+    resources :admins, controller: 'users', type: 'Admin' do
+      resources :employees
+    end
+  end
+  resources :customers, controller: 'users', type: 'Customer' do
+    resources :cars, shallow: true
+  end
+  resources :cars do
+    resources :services, shallow: true
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -13,5 +18,5 @@ Rails.application.routes.draw do
   get 'up' => 'rails/health#show', as: :rails_health_check
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root 'home#index'
 end

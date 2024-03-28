@@ -23,8 +23,8 @@
 
   <div class="my-5">
     <%= form.label :duration %>
-    <% if @service.duration%>
-      <%= form.text_field :duration, value: ActiveSupport::Duration.build(@service.duration).inspect, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <% if @service.duration? %>
+      <%= form.text_field :duration, value: service_duration(@service), class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     <% else %>
       <%= form.text_field :duration, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     <% end %>

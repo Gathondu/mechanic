@@ -77,4 +77,9 @@ class ServicesController < ApplicationController
     @service_params[:duration] = duration_value
     @service_params
   end
+
+  def service_duration(service)
+    ActiveSupport::Duration.build(service.duration).inspect
+  end
+  helper_method :service_duration
 end

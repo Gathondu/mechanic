@@ -44,6 +44,11 @@ class ApplicationController < ActionController::Base
     reset_session
   end
 
+  def flash_notice(msg)
+    flash[:notice] = msg
+  end
+  helper_method :flash_notice
+
   def flash_errors(errors)
     errors.each { |error| flash[:error] = error.full_message }
   end
@@ -52,4 +57,5 @@ class ApplicationController < ActionController::Base
   def flash_errors_now(errors)
     errors.each { |error| flash.now[:error] = error.full_message }
   end
+  helper_method :flash_errors_now
 end

@@ -6,15 +6,13 @@ class ServicesController < ApplicationController
     @services = @car.services
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @service = Service.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @service = @car.services.build(service_params)
@@ -24,6 +22,7 @@ class ServicesController < ApplicationController
         format.html { redirect_to car_services_path(@car), notice: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: @service }
       else
+        flash_errors_now(@service.errors)
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
@@ -32,10 +31,11 @@ class ServicesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @service.update({ car_id: @service.car_id, **service_params })
+      if @service.update(service_params)
         format.html { redirect_to service_url(@service), notice: 'Service was successfully updated.' }
         format.json { render :show, status: :ok, location: @service }
       else
+        flash_errors_now(@service.errors)
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
@@ -67,14 +67,13 @@ class ServicesController < ApplicationController
   def service_params
     @service_params = params.require(:service).permit(:status, :start_time, :duration, :service_type, :description,
                                                       :cost, :employee_id)
-
     parts = @service_params[:duration].split
     allowed = /\A(minute|hour|day|week|month|year)s?\z/
 
-    raise TypeError('Check the duration') unless allowed.match? parts.last
-
-    duration_value = parts.first.to_i.send(parts.last)
-    @service_params[:duration] = duration_value
+    if allowed.match?(parts.last)
+      duration_value = parts.first.to_i.send(parts.last)
+      @service_params[:duration] = duration_value
+    end
     @service_params
   end
 

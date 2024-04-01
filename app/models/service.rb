@@ -7,4 +7,6 @@ class Service < ApplicationRecord
 
   enum status: %i[pending started complete cancelled]
   enum service_type: %i[minor major custom]
+
+  validates :duration, presence: true
 end

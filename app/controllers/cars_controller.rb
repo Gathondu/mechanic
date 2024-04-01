@@ -24,6 +24,7 @@ class CarsController < ApplicationController
         format.html { redirect_to customer_cars_url(@customer), notice: 'Car was successfully created.' }
         format.json { render :show, status: :created, location: @car }
       else
+        flash_errors_now(@car.errors)
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @car.errors, status: :unprocessable_entity }
       end
@@ -36,6 +37,7 @@ class CarsController < ApplicationController
         format.html { redirect_to car_url(@car), notice: 'Car was successfully updated.' }
         format.json { render :show, status: :ok, location: @car }
       else
+        flash_errors_now(@car.errors)
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @car.errors, status: :unprocessable_entity }
       end

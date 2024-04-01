@@ -1,39 +1,14 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
+  before_action :set_user, except: :index
 
-  # GET /users or /users.json
   def index
     @users = user_type.all
   end
 
-  # GET /users/1 or /users/1.json
   def show; end
 
-  # GET /users/new
-  def new
-    @user = user_type.new
-  end
-
-  # GET /users/1/edit
   def edit; end
 
-  # POST /users or /users.json
-  def create
-    @user = user_type.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to action: 'show', id: @user, notice: "#{user_type} was successfully created." }
-        format.json { render :show, status: :created, location: @user }
-      else
-        flash_errors_now(@user.errors)
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /users/1 or /users/1.json
   def update
     respond_to do |format|
       if @user.update(user_params)
@@ -47,7 +22,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1 or /users/1.json
   def destroy
     @user.destroy!
 
@@ -70,7 +44,7 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(params[:type].downcase.to_sym).permit(:type, :first_name, :last_name, :username, :email,
+    params.require(params[:type].downcase.to_sym).permit(:first_name, :last_name, :username, :email,
                                                          :country_code, :phone_number)
   end
 end

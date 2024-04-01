@@ -3,6 +3,6 @@
 
   <%= render "form", user: @user %>
 
-  <%= link_to "Show #{@user.model_name.name.downcase}", @user, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to "Show #{@user.model_name.name.downcase}", {controller: 'users', action: 'show', id: @user}, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   <%= link_to "Back to #{@user.model_name.name.downcase}s", {controller: 'users', action: 'index'}, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>

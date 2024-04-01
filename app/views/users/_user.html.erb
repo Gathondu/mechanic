@@ -31,7 +31,7 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show #{user.model_name.name.downcase}", user, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Show #{user.model_name.name.downcase}", {controller: 'users', action: 'show', id: user}, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to "Edit #{user.model_name.name.downcase}", {controller: 'users', action: 'edit', id: user}, class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>

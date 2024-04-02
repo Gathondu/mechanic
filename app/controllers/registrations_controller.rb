@@ -9,7 +9,7 @@ class RegistrationsController < ApplicationController
       if @user.save
         login @user
         format.html do
-          redirect_to redirect_path(@user.id), notice: "#{params[:type]} was successfully created."
+          redirect_to root_path, notice: "your #{params[:type].downcase} account was successfully created."
         end
         format.json { render :show, status: :created, location: @user }
       else
@@ -23,10 +23,6 @@ class RegistrationsController < ApplicationController
   private
 
   def registration_params
-    params.require(params[:type].downcase.to_sym).permit(:email, :password, :password_confirmation)
-  end
-
-  def redirect_path(id)
-    params[:type] == 'Customer' ? customer_path(id) : admin_path(id)
+    params.require(params[:type].downcase).permit(:email, :password, :password_confirmation)
   end
 end

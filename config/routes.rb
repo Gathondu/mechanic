@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   resource :password_reset
-  resource :password
+  resource :password, only: %i[edit update]
 
   scope 'users' do
     resources :customers, controller: 'users', type: 'Customer', only: %i[index show edit update destroy]

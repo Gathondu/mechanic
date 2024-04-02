@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   private
 
+  def authenticate_user!
+    redirect_to root_path, alert: 'You must be logged in.' unless user_signed_in?
+  end
+
   def current_user
     Current.user ||= authenticate_user_from_session
   end
@@ -15,23 +19,23 @@ class ApplicationController < ActionController::Base
   end
   helper_method :user_signed_in?
 
-  def customer?
+  def user_is_customer?
     user_signed_in?
     current_user.type == 'Customer'
   end
-  helper_method :customer?
+  helper_method :user_is_customer?
 
-  def admin?
+  def user_is_admin?
     user_signed_in?
     current_user.type == 'Admin'
   end
-  helper_method :admin?
+  helper_method :user_is_admin?
 
-  def employee?
+  def user_is_employee?
     user_signed_in?
     current_user.type == 'Employee'
   end
-  helper_method :employee?
+  helper_method :user_is_employee?
 
   def login(user)
     Current.user = user

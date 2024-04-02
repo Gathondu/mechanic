@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(params[:type].downcase.to_sym).permit(:first_name, :last_name, :username, :email,
-                                                         :country_code, :phone_number)
+    params.require(params[:type].downcase).permit(:first_name, :last_name, :username, :email,
+                                                  :country_code, :phone_number)
   end
 end

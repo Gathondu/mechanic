@@ -1,0 +1,9 @@
+<div class="w-full">
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl"><%= @users.model_name.name %>s</h1>
+  </div>
+
+  <div id="employees" class="min-w-full">
+    <%= render partial: 'user', collection: @users %>
+  </div>
+</div>

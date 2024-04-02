@@ -1,8 +1,16 @@
 class UsersController < ApplicationController
-  before_action :set_user, except: :index
+  before_action :set_user, except: %i[index employees]
 
   def index
-    @users = user_type.all
+    redirect_to root_url, alert: 'Not allowed.' unless user_is_admin?
+
+    @users = User.all
+  end
+
+  def employees
+    redirect_to root_url, alert: 'Not allowed.' unless user_is_admin?
+
+    @users = current_user.employees
   end
 
   def show; end
@@ -12,7 +20,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to action: 'show', id: @user, notice: "#{user_type} was successfully updated." }
+        format.html { redirect_to user_url, notice: "#{@user.type} was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
         flash_errors_now(@user.errors)
@@ -24,30 +32,23 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy!
+    logout
 
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "#{user_type} was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "#{user_type} was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
 
-  def users_url
-    params[:type] == 'Customer' ? customers_path : admins_path
-  end
-
   def set_user
     @user = User.find(params[:id])
   end
 
-  def user_type
-    params[:type].constantize if params[:type].in? User::TYPE_NAMES
-  end
-
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(params[:type].downcase).permit(:first_name, :last_name, :username, :email,
-                                                  :country_code, :phone_number)
+    params.require(:user).permit(:first_name, :last_name, :username, :email,
+                                 :country_code, :phone_number)
   end
 end

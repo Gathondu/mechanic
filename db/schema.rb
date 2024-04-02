@@ -45,13 +45,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_100028) do
     t.string "first_name"
     t.string "last_name"
     t.string "username"
-    t.string "email"
+    t.string "email", null: false
     t.string "country_code"
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "manager_id"
     t.string "password_digest"
+    t.boolean "super_admin", default: false, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["manager_id"], name: "index_users_on_manager_id"
   end
 

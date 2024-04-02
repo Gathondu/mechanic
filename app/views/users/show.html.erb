@@ -1,27 +1,28 @@
-<div class="mx-auto md:w-2/3 w-full flex">
+<div class="mx-auto md:w-2/3 w-full flex flex-col">
+  <div class="w-full flex">
+    <div>
+      <%= link_to "View Cars",  cars_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    </div>
+    <div>
+      <%= link_to "Add car", new_car_path, {class: "rounded-lg ml-2 py-3 px-5 bg-blue-600 text-white block font-medium"} %>
+    </div>
+
+    <% if user_is_admin? %>
+      <div>
+        <%= link_to "Show employees", employees_path, class: "rounded-lg ml-2 py-3 px-5 bg-blue-600 text-white block font-medium" %>
+      </div>
+      <div>
+        <%= link_to "Add employee", '#', {class: "rounded-lg ml-2 py-3 px-5 bg-blue-600 text-white block font-medium"} %>
+      </div>
+    <% end %>
+  </div>
   <div class="mx-auto">
     <%= render partial: 'user', object: @user %>
 
-    <%= link_to "Edit", {controller: 'users', action: 'edit', id: @user}, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit", edit_user_path, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
-      <%= button_to "Delete", {controller: 'users', action: 'destroy'}, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <%= button_to "Delete", user_path(@user), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
-    <%= link_to "Back to #{@user.model_name.name.downcase}s", {controller: 'users', action: 'index'}, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to_if(user_is_admin?, "Back to #{@user.model_name.name.downcase}s", users_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium") {} %>
   </div>
 </div>
-<% if @user.class == Customer %>
-  <div>
-    <%= link_to "View Cars",  customer_cars_path(@user), class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
-  <div>
-    <%= link_to "Add car", new_customer_car_path(@user), {class: "rounded-lg ml-2 py-3 px-5 bg-blue-600 text-white block font-medium"} %>
-  </div>
-<% end %>
-<% if @user.class == Admin %>
-  <div>
-    <%= link_to "Show employees", admin_employees_path(@user), class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
-  <div>
-    <%= link_to "Add employee", new_admin_employee_path(@user), {class: "rounded-lg ml-2 py-3 px-5 bg-blue-600 text-white block font-medium"} %>
-  </div>
-<% end %>

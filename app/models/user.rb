@@ -5,5 +5,8 @@ class User < ApplicationRecord
 
   TYPE_NAMES = %w[Admin Customer Employee].freeze
   validates :type, inclusion: { in: TYPE_NAMES, message: "User must be one of: #{TYPE_NAMES.join(', ')}" }
+  validates :email, presence: true, uniqueness: true
   normalizes :email, with: ->(email) { email.strip.downcase }
+
+  has_many :cars, dependent: :destroy
 end

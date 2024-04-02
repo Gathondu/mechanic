@@ -9,7 +9,7 @@ class RegistrationsController < ApplicationController
       if @user.save
         login @user
         format.html do
-          redirect_to root_path, notice: "your #{params[:type].downcase} account was successfully created."
+          redirect_to root_path, notice: "Your #{params[:type].downcase} account was successfully created."
         end
         format.json { render :show, status: :created, location: @user }
       else

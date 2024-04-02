@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   scope 'registration' do
-    resource :customer, controller: 'registrations', type: 'Customer', only: %i[new create]
-    resource :admin, controller: 'registrations', type: 'Admin', only: %i[new create]
+    resource :customer, controller: 'registrations', type: 'Customer', only: %i[new create],
+                        as: 'register_customer'
+    resource :admin, controller: 'registrations', type: 'Admin', only: %i[new create], as: 'register_admin'
   end
 
-  resource :session
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
   resource :password_reset
   resource :password
 
@@ -14,7 +18,7 @@ Rails.application.routes.draw do
       resources :employees, shallow: true
     end
   end
-  resources :customers, controller: 'users', type: 'Customer' do
+  resources :customers, controller: 'users', type: 'Customer', only: %i[index show edit update destroy] do
     resources :cars, shallow: true
   end
   resources :cars do

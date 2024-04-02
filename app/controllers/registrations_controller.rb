@@ -7,9 +7,9 @@ class RegistrationsController < ApplicationController
     @user = User.new({ type: params[:type], **registration_params })
     respond_to do |format|
       if @user.save
+        login @user
         format.html do
-          redirect_to controller: 'users', action: 'show', id: @user,
-                      notice: "#{params[:type]} was successfully created."
+          redirect_to redirect_path(@user.id), notice: "#{params[:type]} was successfully created."
         end
         format.json { render :show, status: :created, location: @user }
       else
@@ -24,5 +24,9 @@ class RegistrationsController < ApplicationController
 
   def registration_params
     params.require(params[:type].downcase.to_sym).permit(:email, :password, :password_confirmation)
+  end
+
+  def redirect_path(id)
+    params[:type] == 'Customer' ? customer_path(id) : admin_path(id)
   end
 end

@@ -7,8 +7,10 @@ class RegistrationsController < ApplicationController
     @user = User.new({ type: params[:type], **registration_params })
     respond_to do |format|
       if @user.save
-        flash[:notice] = "#{params[:type]} was successfully created."
-        format.html { redirect_to controller: 'users', action: 'show', id: @user }
+        format.html do
+          redirect_to controller: 'users', action: 'show', id: @user,
+                      notice: "#{params[:type]} was successfully created."
+        end
         format.json { render :show, status: :created, location: @user }
       else
         flash_errors_now(@user.errors)

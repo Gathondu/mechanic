@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
   def create
     respond_to do |format|
-      @user = User.authenticate_by(email: params[:email], password: params[:password])
+      @user = User.authenticate_by(type: params[:type], email: params[:email], password: params[:password])
       if @user
         login @user
         format.html { redirect_to root_path, notice: 'You have signed in successfully.' }

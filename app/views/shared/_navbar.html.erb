@@ -3,6 +3,7 @@
     <%= link_to 'Edit password', edit_password_path %>
     <%= button_to 'Logout', logout_path, method: :delete %>
   <% else %>
-    <%= link_to 'Log in', login_path %>
+    <%= link_to 'Customer log in', customer_login_path %>
+    <%= link_to 'Admin log in', admin_login_path %>
   <% end %>
 </nav>

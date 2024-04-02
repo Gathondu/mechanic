@@ -4,5 +4,5 @@
   <%= render "form", {car: @car, customer: @customer} %>
 
   <%= link_to "Back to cars", customer_cars_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to customer", customer_path(@customer), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to "Back to customer", {controller: 'users', action: 'show', id: @customer}, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>

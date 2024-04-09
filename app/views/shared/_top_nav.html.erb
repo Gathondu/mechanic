@@ -1,0 +1,29 @@
+<section class="top-0 z-10 fixed w-full" data-controller="navbar sticky-header" data-action="resize@window->navbar#closeOnBigScreen keyup@window->navbar#closeOnEsc">
+  <nav id="main-nav" class="flex items-center bg-site-gray bg-opacity-40 p-4 space-x-2 h-20">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="lg:hidden w-6 h-6"  role="button" data-action="click->navbar#toggle">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+    </svg>
+    <div class="flex w-full justify-between">
+      <%= image_tag 'logo.png', size:"182x32", alt: "logo" %>
+      <div class="hidden lg:flex space-x-2">
+        <div>menu items</div>
+        <div>
+          <% if user_signed_in? %>
+            <%= link_to 'Edit password', edit_password_path %>
+            <%= button_to 'Logout', logout_path, method: :delete %>
+          <% else %>
+            <%= link_to 'Log in', login_path %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <nav class="w-5/6 left-3 absolute top-4 bg-red-200 h-80 overflow-y-auto hidden rounded-lg p-4" data-navbar-target="content">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 absolute top-2 right-4 text-3xl text-gray-500 text-opacity-50" role="button" data-action="click->navbar#toggle">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+    </svg>
+    <% (300..400).each do |i| %>
+      <p><%= i %></p>
+    <% end %>
+  </nav>
+</section>

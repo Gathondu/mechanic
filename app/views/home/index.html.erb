@@ -1,1 +1,141 @@
-<h1>Homepage</h1>
+<%# --------CAROUSEL---------- %>
+<section data-controller="transitions" data-action="load@window->transitions#initiateHomeSlider" class="relative md:h-80 lg:h-screen bg-site-gray">
+  <div class="relative text-white text-5xl items-center justify-center transition-opacity ease-out duration-700  slide opacity-100">
+    <%= image_tag 'slider/home_slider.jpg', size: "100%", class: "absolute top-0" %>
+    <h1 class="absolute top-20 md:top-44 lg:top-72 uppercase font-thin text-3xl md:text-6xl lg:text-9xl flex flex-col justify-center items-center w-full transition-transform ease-in duration-500 translate-y-0 slide-header">
+      Quality car
+      <span class="font-medium  bg-opacity-50 transition-transform ease-in duration-500 translate-y-0 slide-span">Maintainance</span>
+    </h1>
+  </div>
+  <div class="relative flex inset-0 text-white text-5xl items-center justify-center transition-opacity ease-out duration-700 slide opacity-0">
+    <%= image_tag 'slider/home_slider_2.jpg', size: "100%", class: "absolute top-0" %>
+    <h1 class="absolute top-20 md:top-44 lg:top-72 uppercase font-thin text-3xl md:text-6xl lg:text-9xl flex flex-col justify-center items-center w-full transition-transform ease-in duration-500 translate-y-0 slide-header">
+      Quality car
+      <span class="font-medium bg-opacity-50 transition-transform ease-in duration-500 translate-y-0 slide-span">Maintainance</span>
+    </h1>
+  </div>
+  <div class="relative flex inset-0 text-white text-5xl items-center justify-center transition-opacity ease-out duration-700 slide opacity-0">
+    <%= image_tag 'slider/home_slider_3.jpg', size: "100%", class: "absolute top-0" %>
+    <h1 class="absolute top-20 md:top-44 lg:top-72 uppercase font-thin text-3xl md:text-6xl lg:text-9xl flex flex-col justify-center items-center w-full transition-transform ease-in duration-500 translate-y-0 slide-header">
+      Quality car
+      <span class="font-medium bg-opacity-50  transition-transform ease-in duration-500 translate-y-0 slide-span">Maintainance</span>
+    </h1>
+  </div>
+</section>
+
+<%# --------ABOUT US---------- %>
+<section class="bg-site-gray h-[800px] lg:h-screen text-white">
+  <div class="container mx-auto px-5 py-10 flex flex-col justify-center items-center relative top-52">
+    <h2 class="uppercase flex flex-col justify-center items-center text-3xl md:text-8xl font-thin">
+      a few words
+      <span class="font-medium">about us</span>
+    </h2>
+    <p class="px-10 py-5 text-center font-thin text-lg text-gray-400">For nearly 20 years, residents throughout the local area have turned to Car Repair for all of their automotive repair needs. With free estimates and fast turnaround, we are known for our personal service and expertise in all forms of specialized engine repair. We use the latest and most modern diagnostic technology to have you back in your car.</p>
+    <%= link_to 'read more', '#', class: "uppercase bg-red-600 hover:bg-gray-500 h-20 flex justify-center items-center w-3/6 lg:w-1/6 text-2xl lg:text-3xl rounded mt-5" %>
+  </div>
+</section>
+
+<%# --------BEST SERVICES------- %>
+<section class="text-white h-[800px] lg:h-screen">
+  <div class="flex flex-col h-full lg:flex-row">
+    <div class="lg:w-1/2 lg:relative md:h-96 lg:h-screen">
+      <%= image_tag 'engine.jpg', size: "100%", class: "lg:absolute lg:top-0 object-cover lg:h-full" %>
+    </div>
+    <div class=" bg-red-600 lg:w-1/2 h-full">
+      <div class="container mx-auto px-5 py-10 md:py-0 lg:py-10 flex flex-col justify-center items-center lg:relative lg:top-52 mb-10 lg:mb-0">
+        <h2 class="uppercase flex flex-col justify-center items-center text-3xl md:text-8xl font-thin">
+          best
+          <span class="font-medium">services</span>
+        </h2>
+        <p class="text-center font-thin text-lg">Car Repair can solve almost any problem that occurs with your vehicle. From engine repairs and oil change to regular maintenance and diagnostics, you will always get reliable services from our ASE certified technicians who use the latest in automotive equipment and diagnostic software.</p>
+        <%= link_to 'read more', '#', class: "uppercase bg-white hover:bg-gray-500 h-20 flex justify-center items-center w-3/6 md:w-2/6 text-2xl md:text-3xl rounded mt-6 text-site-gray" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# --------GUARANTEE---------- %>
+<section class="text-white h-[800px] lg:h-screen">
+  <div class="flex flex-col h-full lg:flex-row">
+    <div class=" bg-site-gray lg:w-1/2 h-full">
+      <div class="container mx-auto px-5 py-10 flex flex-col justify-center items-center lg:relative lg:top-52 mb-10 lg:mb-0">
+        <h2 class="uppercase flex flex-col justify-center items-center text-3xl md:text-8xl font-thin">
+          100% result
+          <span class="font-medium">guarantee</span>
+        </h2>
+        <p class="text-center font-thin text-lg">Car Repair stands for expertise, value, and professionalism - and has from the day the company began. We were the first automotive aftermarket repair company to offer a lifetime guarantee on select services, and today we guarantee that the results of our work will meet your expectations.</p>
+        <%= link_to 'read more', '#', class: "uppercase bg-site-gray hover:bg-red-600 h-20 flex justify-center items-center w-3/6 md:w-2/6 text-2xl md:text-3xl rounded mt-6 text-white" %>
+      </div>
+    </div>
+    <div class="lg:w-1/2 lg:relative md:h-96 lg:h-screen">
+      <%= image_tag 'cockpit.jpg', size: "100%", class: "lg:absolute lg:top-0 object-cover lg:h-full" %>
+    </div>
+  </div>
+</section>
+
+<%# --------ADVANTAGES--------- %>
+<section class="h-[900px] text-site-gray">
+  <div class="flex flex-col md:h-full mt-10 md:mt-80 lg:mt-10 items-center lg:px-28">
+    <h2 class="uppercase text-center font-bold text-4xl md:text-6xl lg:text-8xl ">our <span class="font-thin">advantages</span></h2>
+    <div class="mt-10 flex flex-col md:flex-row lg:gap-x-20">
+      <div class="flex flex-col lg:flex-row-reverse items-center">
+        <div class="relative">
+          <div class=" lnr lnr-car text-red-600 text-8xl relative top-1"></div>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130.5px" height="150.5px" class="absolute top-0 -right-4">
+            <path fill-rule="evenodd" stroke="#ea202e" stroke-width="3px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M64.500,147.500 L1.511,111.000 L1.511,38.000 L64.500,1.500 L127.489,38.000 L127.489,111.000 L64.500,147.500 Z"></path>
+          </svg>
+        </div>
+        <div class="mt-14 justify-center items-center text-center lg:text-right p-4 md:p-6 lg:px-10 lg:w-2/3">
+          <h4 class="uppercase font-semibold text-2xl hover:text-red-600">all car makes</h4>
+          <p class="font-normal mt-2">We provide a variety of repair and maintenance services for all car makes and models, even for exotic and vintage ones.</p>
+        </div>
+      </div>
+      <div class="flex flex-col lg:flex-row items-center">
+        <div class="relative">
+          <div class=" lnr lnr-car text-red-600 text-8xl relative top-1"></div>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130.5px" height="150.5px" class="absolute top-0 -right-4">
+            <path fill-rule="evenodd" stroke="#ea202e" stroke-width="3px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M64.500,147.500 L1.511,111.000 L1.511,38.000 L64.500,1.500 L127.489,38.000 L127.489,111.000 L64.500,147.500 Z"></path>
+          </svg>
+        </div>
+        <div class="mt-14 justify-center items-center text-center lg:text-left p-4 md:p-6 lg:px-10 lg:w-2/3">
+          <h4 class="uppercase font-semibold text-2xl hover:text-red-600">service variety</h4>
+          <p class="font-normal mt-2">The main principle of our work is to offer a wide range of quality car repair services and we’ve been doing it since our first day.</p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 flex flex-col md:flex-row lg:gap-x-20">
+      <div class="flex flex-col items-center lg:flex-row-reverse">
+        <div class="relative">
+          <div class=" lnr lnr-car text-red-600 text-8xl relative top-1"></div>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130.5px" height="150.5px" class="absolute top-0 -right-4">
+            <path fill-rule="evenodd" stroke="#ea202e" stroke-width="3px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M64.500,147.500 L1.511,111.000 L1.511,38.000 L64.500,1.500 L127.489,38.000 L127.489,111.000 L64.500,147.500 Z"></path>
+          </svg>
+        </div>
+        <div class="mt-14 justify-center items-center text-center lg:text-right p-4 md:p-6 lg:px-10 lg:w-2/3">
+          <h4 class="uppercase font-semibold text-2xl hover:text-red-600">quality support</h4>
+          <p class="font-normal mt-2">Car Repair offers quality support programs for any vehicles that allow them to always stay fully functional.</p>
+        </div>
+      </div>
+      <div class="flex flex-col items-center lg:flex-row">
+        <div class="relative">
+          <div class=" lnr lnr-car text-red-600 text-8xl relative top-1"></div>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130.5px" height="150.5px" class="absolute top-0 -right-4">
+            <path fill-rule="evenodd" stroke="#ea202e" stroke-width="3px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M64.500,147.500 L1.511,111.000 L1.511,38.000 L64.500,1.500 L127.489,38.000 L127.489,111.000 L64.500,147.500 Z"></path>
+          </svg>
+        </div>
+        <div class="mt-14 justify-center items-center text-center lg:text-left p-4 md:p-6 lg:px-10 lg:w-2/3">
+          <h4 class="uppercase font-semibold text-2xl hover:text-red-600">accessories</h4>
+          <p class="font-normal mt-2">At our car repair center, you can also buy any accessories you need for your vehicle, including car tires and filters.</p>
+        </div>
+      </div>
+    </div>
+    <div class="lg:mt-28  w-full">
+      <%= link_to 'read more', '#', class: "uppercase bg-site-gray hover:bg-red-600 h-20 f flex justify-center items-center w-3/6 md:w-2/6 lg:w-1/6 text-2xl md:text-3xl rounded text-white mx-auto" %>
+      </div>
+  </div>
+</section>
+
+<%# --------SERVICES---------- %>
+
+
+<%# --------CONTACTS---------- %>

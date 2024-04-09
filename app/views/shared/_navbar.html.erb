@@ -1,8 +1,0 @@
-<nav class="bg-grey-900">
-  <% if user_signed_in? %>
-    <%= link_to 'Edit password', edit_password_path %>
-    <%= button_to 'Logout', logout_path, method: :delete %>
-  <% else %>
-    <%= link_to 'Log in', login_path %>
-  <% end %>
-</nav>

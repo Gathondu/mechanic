@@ -4,10 +4,10 @@
     <%= render "shared/head" %>
   </head>
 
-  <body>
-    <%= render "shared/navbar" %>
+  <body class="subpixel-antialiased font-lato">
+    <%= render "shared/top_nav" %>
     <%= render "shared/flash" %>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main>
       <%= yield %>
     </main>
   </body>

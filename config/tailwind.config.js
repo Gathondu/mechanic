@@ -11,9 +11,10 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+        lato: ["Lato", ...defaultTheme.fontFamily.serif],
       },
-      backgroundImage: {
-        navbar: "url('assets/images/navbar.svg')",
+      colors: {
+        "site-gray": "#2c2d2e",
       },
     },
   },

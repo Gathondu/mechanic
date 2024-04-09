@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://localhost:3000/# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 2147483647;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style>
+    <title>Rein</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="h1xXygTtqobwNeSTeFJWXc1PdcYwALHNG6vdbeEAARu5_ddkxlGIPq-Aqg9GQ9LnWH9hUorA-Kj7I8tN3RChvQ">
+
+<link rel="stylesheet" href="./Rein_files/tailwind-ac0a10ae781fa3e68c4c1a0f972fc90d8d8482f3d32c2f4093f34158e54ae8ec.css" data-turbo-track="reload">
+<link rel="stylesheet" href="./Rein_files/inter-font-8c3e82affb176f4bca9616b838d906343d1251adc8408efe02cf2b1e4fcf2bc4.css" data-turbo-track="reload">
+
+<link rel="stylesheet" href="./Rein_files/application-fe440406e54bdd95ec9046fd7f7b3f6803f9748857226012c8213a74c8350ae1.css" data-turbo-track="reload">
+<link rel="stylesheet" href="./Rein_files/css2" data-turbo-track="reload">
+<link rel="stylesheet" href="./Rein_files/icon-font.min.css">
+<script type="importmap" data-turbo-track="reload">{
+  "imports": {
+    "application": "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js",
+    "@hotwired/turbo-rails": "/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js",
+    "@hotwired/stimulus": "/assets/@hotwired--stimulus-379f09adbcd004e5b2c2793635d128b6e72c08d1ef5337bf8a5d1e260aaa403e.js",
+    "@hotwired/stimulus-loading": "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js",
+    "tailwindcss-stimulus-components": "/assets/tailwindcss-stimulus-components-dcc665c555aac4db8bee2de6477e0123e689c74d507c046910fc7dcb6cb13a22.js",
+    "stimulus-use": "/assets/stimulus-use-5ce13a71e738ce2e87c32fcde8ce0a485c3a47d09b5c40f537862c664c692bb7.js",
+    "el-transition": "/assets/el-transition-ea3c9b45578809c199f6725e011d96e3f37f5311744d1da6b1b16c889ad9e73b.js",
+    "controllers/application": "/assets/controllers/application-d02579066047616417a6ab2eb4e7f40302a1eb22ff9758a1eec5df333c071dcf.js",
+    "controllers/hello_controller": "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js",
+    "controllers": "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js",
+    "controllers/navbar_controller": "/assets/controllers/navbar_controller-e56f6b3c4bfdc2d81924fdba455b5290eb1f641119137547a0b6382599a2005c.js",
+    "controllers/sticky_header_controller": "/assets/controllers/sticky_header_controller-9daa5ba130d3e2c34f82e4c21edaaf576654a1a8691b946330be9fbf0ff448d2.js",
+    "controllers/transitions_controller": "/assets/controllers/transitions_controller-b0f18a3e55428640f934a16dd45a8aac37a1a97fb8f11104ca6431cc6e9979fb.js"
+  }
+}</script>
+<link rel="modulepreload" href="http://localhost:3000/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js">
+<link rel="modulepreload" href="http://localhost:3000/assets/turbo.min-918a6cf2f2be8ed9555c9a11eee69c7dc2f01770802815576efc931876b327fb.js">
+<link rel="modulepreload" href="http://localhost:3000/assets/@hotwired--stimulus-379f09adbcd004e5b2c2793635d128b6e72c08d1ef5337bf8a5d1e260aaa403e.js">
+<link rel="modulepreload" href="http://localhost:3000/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js">
+<link rel="modulepreload" href="http://localhost:3000/assets/tailwindcss-stimulus-components-dcc665c555aac4db8bee2de6477e0123e689c74d507c046910fc7dcb6cb13a22.js">
+<link rel="modulepreload" href="http://localhost:3000/assets/stimulus-use-5ce13a71e738ce2e87c32fcde8ce0a485c3a47d09b5c40f537862c664c692bb7.js">
+<link rel="modulepreload" href="http://localhost:3000/assets/el-transition-ea3c9b45578809c199f6725e011d96e3f37f5311744d1da6b1b16c889ad9e73b.js">
+<link rel="modulepreload" href="http://localhost:3000/assets/controllers/application-d02579066047616417a6ab2eb4e7f40302a1eb22ff9758a1eec5df333c071dcf.js">
+<link rel="modulepreload" href="http://localhost:3000/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js">
+<link rel="modulepreload" href="http://localhost:3000/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js">
+<link rel="modulepreload" href="http://localhost:3000/assets/controllers/navbar_controller-e56f6b3c4bfdc2d81924fdba455b5290eb1f641119137547a0b6382599a2005c.js">
+<link rel="modulepreload" href="http://localhost:3000/assets/controllers/sticky_header_controller-9daa5ba130d3e2c34f82e4c21edaaf576654a1a8691b946330be9fbf0ff448d2.js">
+<link rel="modulepreload" href="http://localhost:3000/assets/controllers/transitions_controller-b0f18a3e55428640f934a16dd45a8aac37a1a97fb8f11104ca6431cc6e9979fb.js">
+<script type="module">import "application"</script>
+
+  </head>
+
+  <body class="subpixel-antialiased font-lato" data-new-gr-c-s-check-loaded="14.1166.0" data-gr-ext-installed="" data-gr-ext-disabled="forever">
+    <section class="top-0 z-10 fixed w-full" data-controller="navbar sticky-header" data-action="resize@window-&gt;navbar#closeOnBigScreen keyup@window-&gt;navbar#closeOnEsc">
+  <nav id="main-nav" class="flex items-center bg-site-gray bg-opacity-40 p-4 space-x-2 h-20">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="lg:hidden w-6 h-6" role="button" data-action="click-&gt;navbar#toggle">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+    </svg>
+    <div class="flex w-full justify-between">
+      <img alt="logo" src="./Rein_files/logo-7e435ea7a73aa3da0f0919b539a5978525df7d1d0638bcc2179494c8db6e0b3b.png" width="182" height="32">
+      <div class="hidden lg:flex space-x-2">
+        <div>menu items</div>
+        <div>
+            <a href="http://localhost:3000/login">Log in</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <nav class="w-5/6 left-3 absolute top-4 bg-red-200 h-80 overflow-y-auto hidden rounded-lg p-4" data-navbar-target="content">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 absolute top-2 right-4 text-3xl text-gray-500 text-opacity-50" role="button" data-action="click-&gt;navbar#toggle">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+    </svg>
+      <p>300</p>
+      <p>301</p>
+      <p>302</p>
+      <p>303</p>
+      <p>304</p>
+      <p>305</p>
+      <p>306</p>
+      <p>307</p>
+      <p>308</p>
+      <p>309</p>
+      <p>310</p>
+      <p>311</p>
+      <p>312</p>
+      <p>313</p>
+      <p>314</p>
+      <p>315</p>
+      <p>316</p>
+      <p>317</p>
+      <p>318</p>
+      <p>319</p>
+      <p>320</p>
+      <p>321</p>
+      <p>322</p>
+      <p>323</p>
+      <p>324</p>
+      <p>325</p>
+      <p>326</p>
+      <p>327</p>
+      <p>328</p>
+      <p>329</p>
+      <p>330</p>
+      <p>331</p>
+      <p>332</p>
+      <p>333</p>
+      <p>334</p>
+      <p>335</p>
+      <p>336</p>
+      <p>337</p>
+      <p>338</p>
+      <p>339</p>
+      <p>340</p>
+      <p>341</p>
+      <p>342</p>
+      <p>343</p>
+      <p>344</p>
+      <p>345</p>
+      <p>346</p>
+      <p>347</p>
+      <p>348</p>
+      <p>349</p>
+      <p>350</p>
+      <p>351</p>
+      <p>352</p>
+      <p>353</p>
+      <p>354</p>
+      <p>355</p>
+      <p>356</p>
+      <p>357</p>
+      <p>358</p>
+      <p>359</p>
+      <p>360</p>
+      <p>361</p>
+      <p>362</p>
+      <p>363</p>
+      <p>364</p>
+      <p>365</p>
+      <p>366</p>
+      <p>367</p>
+      <p>368</p>
+      <p>369</p>
+      <p>370</p>
+      <p>371</p>
+      <p>372</p>
+      <p>373</p>
+      <p>374</p>
+      <p>375</p>
+      <p>376</p>
+      <p>377</p>
+      <p>378</p>
+      <p>379</p>
+      <p>380</p>
+      <p>381</p>
+      <p>382</p>
+      <p>383</p>
+      <p>384</p>
+      <p>385</p>
+      <p>386</p>
+      <p>387</p>
+      <p>388</p>
+      <p>389</p>
+      <p>390</p>
+      <p>391</p>
+      <p>392</p>
+      <p>393</p>
+      <p>394</p>
+      <p>395</p>
+      <p>396</p>
+      <p>397</p>
+      <p>398</p>
+      <p>399</p>
+      <p>400</p>
+  </nav>
+</section>
+
+    
+    <main>
+      <section>
+  <section data-controller="transitions" data-action="load@window-&gt;transitions#initiateHomeSlider" class="relative md:h-80 lg:h-screen bg-site-gray">
+    <div class="relative text-white text-5xl items-center justify-center transition-opacity ease-out duration-700 slide opacity-100">
+      <img class="absolute top-0" src="./Rein_files/home_slider-509ce785bf99c3fad871c557488b5e0a7147fedfc7f7edb02bed104dcbe65ad3.jpg">
+      <h1 class="absolute top-20 md:top-44 lg:top-72 uppercase font-thin text-3xl md:text-6xl lg:text-9xl flex flex-col justify-center items-center w-full transition-transform ease-in duration-500 translate-y-0 slide-header">
+        Quality car
+        <span class="font-medium  bg-opacity-50 transition-transform ease-in duration-500 translate-y-0 slide-span">Maintainance</span>
+      </h1>
+    </div>
+    <div class="relative flex inset-0 text-white text-5xl items-center justify-center transition-opacity ease-out duration-700 slide opacity-0">
+      <img class="absolute top-0" src="./Rein_files/home_slider_2-00a3f396ff57b95c277458f0bea62b112e30e574dac46f006bc4e7e87e97b68d.jpg">
+      <h1 class="absolute top-20 md:top-44 lg:top-72 uppercase font-thin text-3xl md:text-6xl lg:text-9xl flex flex-col justify-center items-center w-full transition-transform ease-in duration-500 translate-y-0 slide-header">
+        Quality car
+        <span class="font-medium bg-opacity-50 transition-transform ease-in duration-500 translate-y-0 slide-span">Maintainance</span>
+      </h1>
+    </div>
+    <div class="relative flex inset-0 text-white text-5xl items-center justify-center transition-opacity ease-out duration-700 slide opacity-0">
+      <img class="absolute top-0" src="./Rein_files/home_slider_3-088b1dcddef53febcc0cf65b989c200ddd8f7dcacdb76dc1a56f639509426c71.jpg">
+      <h1 class="absolute top-20 md:top-44 lg:top-72 uppercase font-thin text-3xl md:text-6xl lg:text-9xl flex flex-col justify-center items-center w-full transition-transform ease-in duration-500 translate-y-0 slide-header">
+        Quality car
+        <span class="font-medium bg-opacity-50  transition-transform ease-in duration-500 translate-y-0 slide-span">Maintainance</span>
+      </h1>
+    </div>
+  </section>
+  <section class="bg-site-gray h-[800px] lg:h-screen text-white">
+    <div class="container mx-auto px-5 py-10 flex flex-col justify-center items-center relative top-52">
+      <h2 class="uppercase flex flex-col justify-center items-center text-3xl md:text-8xl font-thin">
+        a few words
+        <span class="font-medium">about us</span>
+      </h2>
+      <p class="px-10 py-5 text-center font-thin text-lg text-gray-400">For nearly 20 years, residents throughout the local area have turned to Car Repair for all of their automotive repair needs. With free estimates and fast turnaround, we are known for our personal service and expertise in all forms of specialized engine repair. We use the latest and most modern diagnostic technology to have you back in your car.</p>
+      <a class="uppercase bg-red-600 hover:bg-gray-500 h-20 flex justify-center items-center w-3/6 lg:w-1/6 text-2xl lg:text-3xl rounded mt-5" href="http://localhost:3000/#">read more</a>
+    </div>
+  </section>
+  <section class="text-white h-[800px] lg:h-screen">
+    <div class="flex flex-col h-full lg:flex-row">
+      <div class="lg:w-1/2 lg:relative md:h-96 lg:h-screen">
+        <img class="lg:absolute lg:top-0 object-cover lg:h-full" src="./Rein_files/engine-e624ac63b60e4e3e5ba62135116b553d6d3b8e3b749f53f1d45bb48c6ef0c2eb.jpg">
+      </div>
+      <div class=" bg-red-600 lg:w-1/2 h-full">
+        <div class="container mx-auto px-5 py-10 md:py-0 lg:py-10 flex flex-col justify-center items-center lg:relative lg:top-52 mb-10 lg:mb-0">
+          <h2 class="uppercase flex flex-col justify-center items-center text-3xl md:text-8xl font-thin">
+            best
+            <span class="font-medium">services</span>
+          </h2>
+          <p class="text-center font-thin text-lg">Car Repair can solve almost any problem that occurs with your vehicle. From engine repairs and oil change to regular maintenance and diagnostics, you will always get reliable services from our ASE certified technicians who use the latest in automotive equipment and diagnostic software.</p>
+          <a class="uppercase bg-white hover:bg-gray-500 h-20 flex justify-center items-center w-3/6 md:w-2/6 text-2xl md:text-3xl rounded mt-6 text-site-gray" href="http://localhost:3000/#">read more</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="text-white h-[800px] lg:h-screen">
+    <div class="flex flex-col h-full lg:flex-row">
+      <div class=" bg-site-gray lg:w-1/2 h-full">
+        <div class="container mx-auto px-5 py-10 flex flex-col justify-center items-center lg:relative lg:top-52 mb-10 lg:mb-0">
+          <h2 class="uppercase flex flex-col justify-center items-center text-3xl md:text-8xl font-thin">
+            100% result
+            <span class="font-medium">guarantee</span>
+          </h2>
+          <p class="text-center font-thin text-lg">Car Repair stands for expertise, value, and professionalism - and has from the day the company began. We were the first automotive aftermarket repair company to offer a lifetime guarantee on select services, and today we guarantee that the results of our work will meet your expectations.</p>
+          <a class="uppercase bg-site-gray hover:bg-red-600 h-20 flex justify-center items-center w-3/6 md:w-2/6 text-2xl md:text-3xl rounded mt-6 text-white" href="http://localhost:3000/#">read more</a>
+        </div>
+      </div>
+      <div class="lg:w-1/2 lg:relative md:h-96 lg:h-screen">
+        <img class="lg:absolute lg:top-0 object-cover lg:h-full" src="./Rein_files/cockpit-b6d15937e65d5ce0e3b4b98ffff1647e1fc1568b11a31b2d33f44ab54978f892.jpg">
+      </div>
+    </div>
+  </section>
+  <section class="h-[900px] lg:h-screen">
+    <div class="flex flex-col md:h-full mt-10 md:mt-80 lg:mt-10 items-center lg:items-end lg:px-28">
+      <h2 class="uppercase text-center font-bold text-4xl md:text-6xl lg:text-8xl ">our <span class="font-thin">advantages</span></h2>
+      <div class="mt-10 flex flex-col md:flex-row">
+        <div class="flex flex-col items-center">
+          <div class="relative">
+            <div class=" lnr lnr-car text-red-600 text-8xl relative top-1"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130.5px" height="150.5px" class="absolute top-0 -right-4">
+              <path fill-rule="evenodd" stroke="#ea202e" stroke-width="3px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M64.500,147.500 L1.511,111.000 L1.511,38.000 L64.500,1.500 L127.489,38.000 L127.489,111.000 L64.500,147.500 Z"></path>
+            </svg>
+          </div>
+          <div class="mt-14 justify-center items-center text-center p-4 md:p-6">
+            <h4 class="uppercase font-semibold text-2xl">all car makes</h4>
+            <p class="font-normal mt-2">We provide a variety of repair and maintenance services for all car makes and models, even for exotic and vintage ones.</p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="relative">
+            <div class=" lnr lnr-car text-red-600 text-8xl relative top-1"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130.5px" height="150.5px" class="absolute top-0 -right-4">
+              <path fill-rule="evenodd" stroke="#ea202e" stroke-width="3px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M64.500,147.500 L1.511,111.000 L1.511,38.000 L64.500,1.500 L127.489,38.000 L127.489,111.000 L64.500,147.500 Z"></path>
+            </svg>
+          </div>
+          <div class="mt-14 justify-center items-center text-center p-4 md:p-6">
+            <h4 class="uppercase font-semibold text-2xl">all car makes</h4>
+            <p class="font-normal mt-2">We provide a variety of repair and maintenance services for all car makes and models, even for exotic and vintage ones.</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10 flex flex-col md:flex-row px-5">
+        <div class="flex flex-col items-center lg:flex-row-reverse">
+          <div class="relative">
+            <div class=" lnr lnr-car text-red-600 text-8xl relative top-1"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130.5px" height="150.5px" class="absolute top-0 -right-4">
+              <path fill-rule="evenodd" stroke="#ea202e" stroke-width="3px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M64.500,147.500 L1.511,111.000 L1.511,38.000 L64.500,1.500 L127.489,38.000 L127.489,111.000 L64.500,147.500 Z"></path>
+            </svg>
+          </div>
+          <div class="mt-14 justify-center items-center text-center p-4 md:p-6 lg:p-8">
+            <h4 class="uppercase font-semibold text-2xl">all car makes</h4>
+            <p class="font-normal mt-2">We provide a variety of repair and maintenance services for all car makes and models, even for exotic and vintage ones.</p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center lg:flex-row">
+          <div class="relative">
+            <div class=" lnr lnr-car text-red-600 text-8xl relative top-1"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130.5px" height="150.5px" class="absolute top-0 -right-4">
+              <path fill-rule="evenodd" stroke="#ea202e" stroke-width="3px" stroke-linecap="butt" stroke-linejoin="miter" fill="none" d="M64.500,147.500 L1.511,111.000 L1.511,38.000 L64.500,1.500 L127.489,38.000 L127.489,111.000 L64.500,147.500 Z"></path>
+            </svg>
+          </div>
+          <div class="mt-14 justify-center items-center text-center p-4 md:p-6 lg:p-8">
+            <h4 class="uppercase font-semibold text-2xl">all car makes</h4>
+            <p class="font-normal mt-2">We provide a variety of repair and maintenance services for all car makes and models, even for exotic and vintage ones.</p>
+          </div>
+        </div>
+      </div>
+      <a class="uppercase bg-site-gray hover:bg-red-600 h-20 f flex justify-center items-center w-3/6 md:w-2/6 text-2xl md:text-3xl rounded mt-10 text-white mx-auto" href="http://localhost:3000/#">read more</a>
+    </div>
+  </section>
+</section>
+
+    </main>
+  
+
+</body></html>

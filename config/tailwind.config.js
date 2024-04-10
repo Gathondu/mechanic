@@ -16,6 +16,13 @@ module.exports = {
       colors: {
         "site-gray": "#2c2d2e",
       },
+      backgroundImage: {
+        service: "url('service.jpg')",
+        "engine-repair": "url('engine-repair.jpg')",
+        brake: "url('brake.jpg')",
+        accident: "url('accident.jpg')",
+        "oil-change": "url('oil-change.jpg')",
+      },
     },
   },
   plugins: [
